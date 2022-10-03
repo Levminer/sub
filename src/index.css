@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.button {
+		@apply flex items-center justify-center gap-2 whitespace-nowrap rounded-2xl border-2 border-white bg-white py-4 px-6 text-xl font-medium text-black outline-none duration-200 ease-linear hover:bg-transparent hover:text-white focus-visible:ring-4 focus-visible:ring-popup-magenta;
+	}
+
+	.input {
+		@apply transparent-900 transparent-input rounded-xl p-8 w-96 text-xl text-white outline-none duration-200 ease-linear;
+	}
+
+	.blurCodes {
+		@apply blur-md delay-500 duration-200 ease-linear hover:blur-none;
+	}
+
+	.originalElement {
+		@apply w-full;
+	}
+
+	.machineElement {
+		@apply w-full flex items-center justify-center;
+	}
+
+	.translationElement {
+		@apply w-full flex items-center justify-center;
+	}
+}
+
+/* body */
+body {
+	color: white;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	background-color: rgb(10, 10, 10);
+	line-height: normal;
+	font-family: system-ui, Arial;
+	user-select: none;
+	outline: none !important;
+}
+
+/* headings */
+h1 {
+	font-size: 64px;
+	font-weight: 700;
+}
+
+/* main card */
+h2 {
+	font-size: 32px;
+	font-weight: 700;
+}
+
+h3 {
+	font-size: 24px;
+	color: #d3cfcf;
+}
+
+/* secondary card */
+h4 {
+	font-size: 24px;
+	font-weight: 500;
+}
+
+h5 {
+	font-size: 18px;
+	color: #d3cfcf;
+}
+
+/* backdrops */
+.transparent-900 {
+	background-color: hsla(0, 0%, 100%, 5.12%);
+}
+
+.transparent-800 {
+	background-color: hsla(0, 0%, 100%, 3.26%);
+}
+
+.transparent-input:hover {
+	background-color: hsla(0, 0%, 100%, 15%);
+}
+
+.transparent-input:focus {
+	background-color: hsla(0, 0%, 100%, 15%);
+}
+
+.transparent-900-hover:hover {
+	background-color: hsla(0, 0%, 100%, 5%);
+}
+
+.transparentHover:hover {
+	background-color: hsla(0, 0%, 100%, 5%);
+}
+
+textarea {
+	resize: none;
+}

@@ -135,17 +135,41 @@
 			document.querySelector(".originalElements").appendChild(div)
 		}
 
+		// Create translated elements
 		for (let i = 0; i < parsedData.length; i++) {
 			const div = document.createElement("div")
 
 			div.innerHTML = `
-			<div class="flex justify-start items-center gap-3 py-5">	
+			<div class="flex justify-start items-center gap-3 py-5">
+				<div class="flex justify-center flex-col items-center mr-5">
+					<h5>CPL</h5>
+					<h5 id="translatedCPL${i}">0</h5>
+				</div>	
 				<textarea id="translated${i}" class="input" cols="2" rows="2"></textarea>
 			</div>
 			`
 
 			div.classList.add("translationElement")
 			document.querySelector(".translatedElements").appendChild(div)
+
+			document.querySelector<HTMLTextAreaElement>(`#translated${i}`).addEventListener("keyup", () => {
+				let inputText = document.querySelector<HTMLInputElement>(`#translated${i}`).value
+				let cpl = ""
+
+				if (inputText === "") {
+					inputText = "0"
+				}
+
+				if (inputText.includes("\n")) {
+					let lines = inputText.split("\n")
+
+					cpl = `${lines[0].length}<br>${lines[1].length}`
+				} else {
+					cpl = inputText.length.toString()
+				}
+
+				document.querySelector(`#translatedCPL${i}`).innerHTML = cpl
+			})
 		}
 	}
 
